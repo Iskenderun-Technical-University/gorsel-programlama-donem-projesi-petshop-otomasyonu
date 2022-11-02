@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+namespace Petshop_Otomasyon
+{
+    public partial class AdminGirisForm : Form
+    {
+        public AdminGirisForm()
+        {
+            InitializeComponent();
+        }
+
+        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-175R2L71;Initial Catalog=PetshopVeriTabani;Integrated Security=True");
+
+        private void BtnGirisYap_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            SqlCommand cmdgiris = new SqlCommand("Select * From Tbl_Admin where KullaniciAdi=@a1 and Sifre=@a2", conn);
+            cmdgiris.Parameters.AddWithValue("@a1", TxtKullaniciAdi.Text);
+            cmdgiris.Parameters.AddWithValue("@a2", TxtSifre.Text);
+            SqlDataReader dr = cmdgiris.ExecuteReader();
+            if (dr.Read())
+            {
+                Form1 frm2 = new Form1();
+                frm2.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Kullanıcı Adı veya Şifre Hatalı Girildi");
+            }
+            conn.Close();
+        }
+
+        private void AdminGirisForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
