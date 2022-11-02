@@ -1,0 +1,90 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+
+namespace Petshop_Otomasyon
+{
+    public partial class İstatistikForm : Form
+    {
+        public İstatistikForm()
+        {
+            InitializeComponent();
+        }
+        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-175R2L71;Initial Catalog=PetshopVeriTabani;Integrated Security=True");
+        private void İstatistikForm_Load(object sender, EventArgs e)
+        {
+            //TOPLAM HAYVAN SAYISI
+            conn.Open();
+            SqlCommand cmd01 = new SqlCommand("Select Count(*) from Tbl_Petshop", conn);
+            SqlDataReader dr01 = cmd01.ExecuteReader();
+            while (dr01.Read())
+            {
+                LblHayvanSayisi.Text = dr01[0].ToString();
+            }
+            conn.Close();
+
+            //TOPLAM ERKEK HAYVAN SAYISI
+            conn.Open();
+            SqlCommand cmd02 = new SqlCommand("Select Count(*) from Tbl_Petshop where Cinsiyet=1", conn);
+            SqlDataReader dr02 = cmd02.ExecuteReader();
+            while (dr02.Read())
+            {
+                LblErkekSayisi.Text = dr02[0].ToString();
+            }
+            conn.Close();
+
+            //TOPLAM DİŞİ HAYVAN SAYISI
+            conn.Open();
+            SqlCommand cmd03 = new SqlCommand("Select Count(*) from Tbl_Petshop where Cinsiyet=0", conn);
+            SqlDataReader dr03 = cmd03.ExecuteReader();
+            while (dr03.Read())
+            {
+                LblDisiSayisi.Text = dr03[0].ToString();
+            }
+            conn.Close();
+
+            //HAYVANLARIN TOPLAM DEĞERİ
+            conn.Open();
+            SqlCommand cmd04 = new SqlCommand("Select Sum(Fiyat) from Tbl_Petshop", conn);
+            SqlDataReader dr04 = cmd04.ExecuteReader();
+            while (dr04.Read())
+            {
+                LblToplamDeger.Text = dr04[0].ToString();
+            }
+            conn.Close();
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label44_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
