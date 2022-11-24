@@ -1,1 +1,4 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=9063780&assignment_repo_type=AssignmentRepo)
+Öncelikli amacımız bu otomasyonu kullanmak isteyen bir petshop’a girip çıkan bütün hayvanların kaydını tutmaktır. Bu kayıtları cins,tür,sayı gibi ölçütler vasıtasıyla sınıflandırdık. Sonuçta işletme sadece bir şubeden oluşmayabilir, birçok şubesi olan bir petshop zinciri olabilir. Bu sayede bir veya birden fazla şubede elde olan veriler birleştirilebilir.
+
+Bu konuda üç tane form hazırladık.
+
