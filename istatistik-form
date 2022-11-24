@@ -60,6 +60,216 @@ namespace Petshop_Otomasyon
                 LblToplamDeger.Text = dr04[0].ToString();
             }
             conn.Close();
+
+            //-----------------------------------------------------------------------------------------------------------------
+
+            //TOPLAM KÖPEK SAYISI
+            conn.Open();
+            SqlCommand cmd11 = new SqlCommand("Select Count(*) from Tbl_Petshop where Cins='Köpek'", conn);
+            SqlDataReader dr11 = cmd11.ExecuteReader();
+            while (dr11.Read())
+            {
+                LblToplamKopek.Text = dr11[0].ToString();
+            }
+            conn.Close();
+
+            //TOPLAM ERKEK KÖPEK SAYISI
+            conn.Open();
+            SqlCommand cmd12 = new SqlCommand("Select Count(*) from Tbl_Petshop where Cinsiyet=1 and Cins='Köpek'", conn);
+            SqlDataReader dr12 = cmd12.ExecuteReader();
+            while (dr12.Read())
+            {
+                LblErkekKopek.Text = dr12[0].ToString();
+            }
+            conn.Close();
+
+            //TOPLAM DİŞİ KÖPEK SAYISI
+            conn.Open();
+            SqlCommand cmd13 = new SqlCommand("Select Count(*) from Tbl_Petshop where Cinsiyet=0 and Cins='Köpek'", conn);
+            SqlDataReader dr13 = cmd13.ExecuteReader();
+            while (dr13.Read())
+            {
+                LblDisiKopek.Text = dr13[0].ToString();
+            }
+            conn.Close();
+
+            //KÖPEKLERİN TOPLAM DEĞERİ
+            conn.Open();
+            SqlCommand cmd14 = new SqlCommand("Select Sum(Fiyat) from Tbl_Petshop where Cins='Köpek'", conn);
+            SqlDataReader dr14 = cmd14.ExecuteReader();
+            while (dr14.Read())
+            {
+                LblToplamDegerKopek.Text = dr14[0].ToString();
+            }
+            conn.Close();
+
+            //-----------------------------------------------------------------------------------------------------------------
+
+            //TOPLAM KEDİ SAYISI
+            conn.Open();
+            SqlCommand cmd21 = new SqlCommand("Select Count(*) from Tbl_Petshop where Cins='Kedi'", conn);
+            SqlDataReader dr21 = cmd21.ExecuteReader();
+            while (dr21.Read())
+            {
+                LblToplamKedi.Text = dr21[0].ToString();
+            }
+            conn.Close();
+
+            //TOPLAM ERKEK KEDİ SAYISI
+            conn.Open();
+            SqlCommand cmd22 = new SqlCommand("Select Count(*) from Tbl_Petshop where Cinsiyet=1 and Cins='Kedi'", conn);
+            SqlDataReader dr22 = cmd22.ExecuteReader();
+            while (dr22.Read())
+            {
+                LblErkekKedi.Text = dr22[0].ToString();
+            }
+            conn.Close();
+
+            //TOPLAM DİŞİ KEDİ SAYISI
+            conn.Open();
+            SqlCommand cmd23 = new SqlCommand("Select Count(*) from Tbl_Petshop where Cinsiyet=0 and Cins='Kedi'", conn);
+            SqlDataReader dr23 = cmd23.ExecuteReader();
+            while (dr23.Read())
+            {
+                LblDisiKedi.Text = dr23[0].ToString();
+            }
+            conn.Close();
+
+            //KEDİLERİN TOPLAM DEĞERİ
+            conn.Open();
+            SqlCommand cmd24 = new SqlCommand("Select Sum(Fiyat) from Tbl_Petshop where Cins='Kedi'", conn);
+            SqlDataReader dr24 = cmd24.ExecuteReader();
+            while (dr24.Read())
+            {
+                LblToplamDegerKedi.Text = dr24[0].ToString();
+            }
+            conn.Close();
+
+            //----------------------------------------------------------------------------------------------------------------------
+
+            //TOPLAM PAPAĞAN SAYISI
+            conn.Open();
+            SqlCommand cmd31 = new SqlCommand("Select Count(*) from Tbl_Petshop where Cins='Papağan'", conn);
+            SqlDataReader dr31 = cmd31.ExecuteReader();
+            while (dr31.Read())
+            {
+                LblToplamPapagan.Text = dr31[0].ToString();
+            }
+            conn.Close();
+
+            //TOPLAM ERKEK PAPAĞAN SAYISI
+            conn.Open();
+            SqlCommand cmd32 = new SqlCommand("Select Count(*) from Tbl_Petshop where Cinsiyet=1 and Cins='Papağan'", conn);
+            SqlDataReader dr32 = cmd32.ExecuteReader();
+            while (dr32.Read())
+            {
+                LblErkekPapagan.Text = dr32[0].ToString();
+            }
+            conn.Close();
+
+            //TOPLAM DİŞİ PAPAĞAN SAYISI
+            conn.Open();
+            SqlCommand cmd33 = new SqlCommand("Select Count(*) from Tbl_Petshop where Cinsiyet=0 and Cins='Papağan'", conn);
+            SqlDataReader dr33 = cmd33.ExecuteReader();
+            while (dr33.Read())
+            {
+                LblDisiPapagan.Text = dr33[0].ToString();
+            }
+            conn.Close();
+
+            //PAPAĞANLARIN TOPLAM DEĞERİ
+            conn.Open();
+            SqlCommand cmd34 = new SqlCommand("Select Sum(Fiyat) from Tbl_Petshop where Cins='Papağan'", conn);
+            SqlDataReader dr34 = cmd34.ExecuteReader();
+            while (dr34.Read())
+            {
+                LblToplamPapaganDeger.Text = dr34[0].ToString();
+            }
+            conn.Close();
+
+            //----------------------------------------------------------------------------------------------------------------------
+
+            //TOPLAM HAMSTER SAYISI
+            conn.Open();
+            SqlCommand cmd41 = new SqlCommand("Select Count(*) from Tbl_Petshop where Cins='Hamster'", conn);
+            SqlDataReader dr41 = cmd41.ExecuteReader();
+            while (dr41.Read())
+            {
+                LblToplamHamster.Text = dr41[0].ToString();
+            }
+            conn.Close();
+
+            //TOPLAM ERKEK HAMSTER SAYISI
+            conn.Open();
+            SqlCommand cmd42 = new SqlCommand("Select Count(*) from Tbl_Petshop where Cinsiyet=1 and Cins='Hamster'", conn);
+            SqlDataReader dr42 = cmd42.ExecuteReader();
+            while (dr42.Read())
+            {
+                LblErkekHamster.Text = dr42[0].ToString();
+            }
+            conn.Close();
+
+            //TOPLAM DİŞİ HAMSTER SAYISI
+            conn.Open();
+            SqlCommand cmd43 = new SqlCommand("Select Count(*) from Tbl_Petshop where Cinsiyet=0 and Cins='Hamster'", conn);
+            SqlDataReader dr43 = cmd43.ExecuteReader();
+            while (dr43.Read())
+            {
+                LblDisiHamster.Text = dr43[0].ToString();
+            }
+            conn.Close();
+
+            //HAMSTERLARIN TOPLAM DEĞERİ
+            conn.Open();
+            SqlCommand cmd44 = new SqlCommand("Select Sum(Fiyat) from Tbl_Petshop where Cins='Hamster'", conn);
+            SqlDataReader dr44 = cmd44.ExecuteReader();
+            while (dr44.Read())
+            {
+                LblToplamDegerHamster.Text = dr44[0].ToString();
+            }
+            conn.Close();
+
+            //----------------------------------------------------------------------------------------------------------------------
+
+            //TOPLAM MUHABBET KUŞU SAYISI
+            conn.Open();
+            SqlCommand cmd51 = new SqlCommand("Select Count(*) from Tbl_Petshop where Cins='Muhabbet Kuşu'", conn);
+            SqlDataReader dr51 = cmd51.ExecuteReader();
+            while (dr51.Read())
+            {
+                LblToplamMuhKusu.Text = dr51[0].ToString();
+            }
+            conn.Close();
+
+            //TOPLAM ERKEK MUHABBET KUŞU SAYISI
+            conn.Open();
+            SqlCommand cmd52 = new SqlCommand("Select Count(*) from Tbl_Petshop where Cinsiyet=1 and Cins='Muhabbet Kuşu'", conn);
+            SqlDataReader dr52 = cmd52.ExecuteReader();
+            while (dr52.Read())
+            {
+                LblErkekMuhKusu.Text = dr52[0].ToString();
+            }
+            conn.Close();
+
+            //TOPLAM DİŞİ MUHABBET KUŞU SAYISI
+            conn.Open();
+            SqlCommand cmd53 = new SqlCommand("Select Count(*) from Tbl_Petshop where Cinsiyet=0 and Cins='Muhabbet Kuşu'", conn);
+            SqlDataReader dr53 = cmd53.ExecuteReader();
+            while (dr53.Read())
+            {
+                LblDisiMuhKusu.Text = dr53[0].ToString();
+            }
+            conn.Close();
+
+            //MUHABBET KUŞLARININ TOPLAM DEĞERİ
+            conn.Open();
+            SqlCommand cmd54 = new SqlCommand("Select Sum(Fiyat) from Tbl_Petshop where Cins='Muhabbet Kuşu'", conn);
+            SqlDataReader dr54 = cmd54.ExecuteReader();
+            while (dr54.Read())
+            {
+                LblToplamDegerMuhKusu.Text = dr54[0].ToString();
+            }
+            conn.Close();
         }
 
         private void label8_Click(object sender, EventArgs e)
@@ -73,16 +283,6 @@ namespace Petshop_Otomasyon
         }
 
         private void label44_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
         {
 
         }
