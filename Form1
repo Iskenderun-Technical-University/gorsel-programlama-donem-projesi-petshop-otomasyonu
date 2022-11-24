@@ -72,3 +72,60 @@ namespace Petshop_Otomasyon
             conn.Close();
             MessageBox.Show("Hayvan Bilgileri Güncellendi");
         }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton2.Checked == true)
+            {
+                label7.Text = "False";
+            }
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked == true)
+            {
+                label7.Text = "True";
+            }
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int ciftTiklama = dataGridView1.SelectedCells[0].RowIndex;
+            Txtid.Text = dataGridView1.Rows[ciftTiklama].Cells[0].Value.ToString();
+            TxtCins.Text = dataGridView1.Rows[ciftTiklama].Cells[1].Value.ToString();
+            TxtRenk.Text = dataGridView1.Rows[ciftTiklama].Cells[2].Value.ToString();
+            label7.Text = dataGridView1.Rows[ciftTiklama].Cells[3].Value.ToString();
+            MskFiyat.Text = dataGridView1.Rows[ciftTiklama].Cells[4].Value.ToString();
+            MskMiktar.Text = dataGridView1.Rows[ciftTiklama].Cells[5].Value.ToString();
+        }
+
+        private void Txtid_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_TextChanged(object sender, EventArgs e)
+        {
+            if(label7.Text == "True")
+            {
+                radioButton1.Checked = true;
+            }
+
+            if (label7.Text == "False")
+            {
+                radioButton2.Checked = true;
+            }
+        }
+
+        private void ButSil_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            SqlCommand cmdsil = new SqlCommand("Delete from Tbl_Petshop Where ID= @t1", conn);
+            cmdsil.Parameters.AddWithValue("@t1", Txtid.Text);
+            cmdsil.ExecuteNonQuery();
+            conn.Close();
+            MessageBox.Show("Hayvanın Bilgileri Silindi");
+        }
+    }
+}
